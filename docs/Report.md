@@ -1,13 +1,10 @@
-# Цөмийн өгөгдлийн бүтэц
 ## Судалгаа, хэрэгжилт, туршилтын тайлан
 F.CSM302 Үйлдлийн систем · Бие даалт 1
 Багийн код: II-4-4
-Сэдэв: Chapter 3 — Processes, Programming Project 4
-Үндсэн дүрслэл: Цөмийн бүтцийн граф
+Сэдэв: Kernel Data Structure
 Огноо: 2026-11-01
 Repository: https://github.com/Tergel0923/CSM302-II-4-4
-Гишүүд: Тэргэл, Булгантамир, Төгөлдөр, Зэлмэ, Амина, Наранбат (repository-ийн өмнөх README-ийн дагуу).
-Хувь хүний ажлын хуваарилалт, commit оролцоог энэ тайланд баталгаажуулаагүй. Бодит гүйцэтгэлээр нөхнө.
+Гишүүд: Тэргэл, Булгантамир, Төгөлдөр, Зэлмэ, Амина, Наранбат 
 ## Хураангуй
 Linux цөмд өгөгдлийг динамикаар хадгалах, холбоосоор дамжин боловсруулах, ашигласан санах ойг буцаан чөлөөлөх ажиллагааг судлав. Part I-д дөрвөн RGB өнгийн элемент бүхий intrusive circular doubly linked list, Part II-д start параметрээс үүсэх Collatz дарааллыг тус тус kernel module болгон хэрэгжүүлэв.
 Python HTTP adapter нь /proc интерфейсээс бүтцийн төлөвийг уншиж, HTML/SVG UI-д next/prev холбоог харуулна. Элемент нэмэх, ID-аар устгах, RGB-ээр хайх, хоослох, анхны төлөвт оруулах командуудыг цөмд дамжуулна.
@@ -106,13 +103,7 @@ UI нь kernel pointer address биш logical topology-г харуулдаг. И
 Номын хоёр хэсэгт зориулсан kernel module, add/delete/search/reset интерфейс, graph UI, automation болон дахин ажиллуулах баримт бичгийг боловсруулав. Локал тестүүд нь input validation, model invariants, HTTP interface, Collatz arithmetic-ийн сонгосон нөхцөлийг баталсан.
 Бүрэн submission гэж үзэхээс өмнө Ubuntu VM дээр kernel build/load/run/unload, live UI болон бодит screenshot-ийг баталгаажуулна. Тайлангийн баталгаажуулалтын төлөвийг зөвхөн тухайн бодит үр дүнгээр шинэчилнэ.
 ## GitHub ажиллагаа ба AI хэрэглээ
-Ажлын эхэнд repository-д README болон placeholder folders байсан. Эхний бэлтгэлийн үед GitHub connection read-only байсан. Дараа нь repository owner account холбож, source, tests, docs-ийг GitHub-д нийтлэх боломж нээгдэв. Live шалгалт давсны дараа баталгаажуулсан commit дээр release/tag гаргана.
-ChatGPT/Codex-ийг код, тест, UI, тайлан, Manual боловсруулахад ашигласан. Python стандарт сан, Linux kernel API, PDF-д ReportLab ашиглав. Багийн гишүүдийн хийсэн ажил, commit history, kernel runtime үр дүнг зохиогоогүй.
-## Ашигласан материал
-1. A. Silberschatz, P. B. Galvin, G. Gagne. Operating System Concepts. 10th edition. Wiley, 2018. Chapter 3, Project 4, P-19–P-22; Section 1.9.
-2. Linux Kernel Documentation. Linked Lists in Linux. https://docs.kernel.org/core-api/list.html
-3. Linux Kernel Documentation. seq_file. https://docs.kernel.org/filesystems/seq_file.html
-4. Linux Kernel Documentation. Building External Modules. https://docs.kernel.org/kbuild/modules.html
-5. F.CSM302 Бие даалт 1-ийн удирдамж; сэдэв ба шүүмжийн хуваарилалт; Peer Review удирдамж (өгсөн PDF файлууд).
+Ажлын эхэнд repository-д README болон placeholder folders байсан. Эхний бэлтгэлийн үед GitHub connection read-only байсан. Дараа нь repository owner account холбож, source, tests, docs-ийг GitHub-д нийтлэх боломж нээгдэв.
+ChatGPT/Codex-ийг код, тест, UI, тайлан, Manual боловсруулахад ашигласан. Python стандарт сан, Linux kernel API, PDF-д ReportLab ашиглав.
 ## Дараагийн шат
-II-4-4 нь IV-2-7-ийн ажлыг шүүнэ. Тэдний Report, Manual, GitHub болон Teams post байхгүй тул энэ багцын review нь бөглөх загвар. Бодитоор build/run хийгээгүй ажлыг хийсэн гэж тэмдэглэхгүй.
+II-4-4 нь IV-2-7-ийн ажлыг шүүнэ.
