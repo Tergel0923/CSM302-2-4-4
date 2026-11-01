@@ -81,13 +81,6 @@ Container-ийн LeakSanitizer ptrace алдаа гарвал зөвхөн ту�
 | docs/ | Mongolian report/manual, review template, evidence and submission checklist |
 | tools/build_docs.py | PDF-ийг эх Markdown-оос дахин гаргах |
 
-## Баримт бичиг
-
-- [Тайлан](docs/II-4-4_BD1_Report.pdf) — хэрэгжилт, онол, бодит local test, үлдсэн validation.
-- [Manual](docs/II-4-4_Manual.pdf) — user болон operational заавар.
-- [Peer-review template](docs/II-4-4_Review_IV-2-7_TEMPLATE.pdf) — бөглөөгүй загвар; гүйцэтгэсэн шүүмж биш.
-- [Submission checklist](docs/SUBMISSION.md).
-
 ## Баг ба AI ашиглалт
 
 Баг II-4-4. Өмнөх README-д байсан гишүүд: Тэргэл, Булгантамир, Төгөлдөр, Зэлмэ, Амина, Наранбат.
