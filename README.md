@@ -25,7 +25,7 @@ python3 src/ui/server.py --mode demo
 Windows: `py src/ui/server.py --mode demo`.
 Нээх: **http://127.0.0.1:8765**. Зогсоох: Ctrl+C.
 
-## Түргэн эхлэх: бодит цөм (Ubuntu VM)
+## Quick start: бодит цөм (Ubuntu VM)
 
 Ubuntu 22.04/24.04 VM, kernel 5.6+, Python 3.10+, GCC/Make, running kernel-тэй ижил headers шаардлагатай.
 Доорх командуудыг repository root-оос ажиллуулна:
