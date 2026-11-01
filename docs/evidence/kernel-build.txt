@@ -1,0 +1,19 @@
+make: Entering directory '/workspace/scratch/560ee596ed72/CSM302-II-4-4/src/kernel'
+make -C /tmp/kds-headers/extract/usr/src/linux-headers-6.8.0-138-generic M=/workspace/scratch/560ee596ed72/CSM302-II-4-4/src/kernel modules
+make[1]: Entering directory '/tmp/kds-headers/extract/usr/src/linux-headers-6.8.0-138-generic'
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+  You are using:           gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  CC [M]  /workspace/scratch/560ee596ed72/CSM302-II-4-4/src/kernel/colors.o
+  CC [M]  /workspace/scratch/560ee596ed72/CSM302-II-4-4/src/kernel/collatz.o
+  MODPOST /workspace/scratch/560ee596ed72/CSM302-II-4-4/src/kernel/Module.symvers
+  CC [M]  /workspace/scratch/560ee596ed72/CSM302-II-4-4/src/kernel/colors.mod.o
+  LD [M]  /workspace/scratch/560ee596ed72/CSM302-II-4-4/src/kernel/colors.ko
+  BTF [M] /workspace/scratch/560ee596ed72/CSM302-II-4-4/src/kernel/colors.ko
+Skipping BTF generation for /workspace/scratch/560ee596ed72/CSM302-II-4-4/src/kernel/colors.ko due to unavailability of vmlinux
+  CC [M]  /workspace/scratch/560ee596ed72/CSM302-II-4-4/src/kernel/collatz.mod.o
+  LD [M]  /workspace/scratch/560ee596ed72/CSM302-II-4-4/src/kernel/collatz.ko
+  BTF [M] /workspace/scratch/560ee596ed72/CSM302-II-4-4/src/kernel/collatz.ko
+Skipping BTF generation for /workspace/scratch/560ee596ed72/CSM302-II-4-4/src/kernel/collatz.ko due to unavailability of vmlinux
+make[1]: Leaving directory '/tmp/kds-headers/extract/usr/src/linux-headers-6.8.0-138-generic'
+make: Leaving directory '/workspace/scratch/560ee596ed72/CSM302-II-4-4/src/kernel'
