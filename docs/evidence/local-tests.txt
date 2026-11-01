@@ -1,0 +1,34 @@
+make: Entering directory '/workspace/scratch/560ee596ed72/CSM302-II-4-4'
+python3 -m unittest discover -s tests -v
+test_add_search_delete (test_backend.BackendTests.test_add_search_delete) ... ok
+test_bad_rgb (test_backend.BackendTests.test_bad_rgb) ... ok
+test_capacity (test_backend.BackendTests.test_capacity) ... ok
+test_clear_reset (test_backend.BackendTests.test_clear_reset) ... ok
+test_collatz_15 (test_backend.BackendTests.test_collatz_15) ... ok
+test_collatz_25 (test_backend.BackendTests.test_collatz_25) ... ok
+test_collatz_27 (test_backend.BackendTests.test_collatz_27) ... ok
+test_collatz_one (test_backend.BackendTests.test_collatz_one) ... ok
+test_delete_first_middle_last (test_backend.BackendTests.test_delete_first_middle_last) ... ok
+test_duplicate_first_match (test_backend.BackendTests.test_duplicate_first_match) ... ok
+test_failed_generation_preserves_state (test_backend.BackendTests.test_failed_generation_preserves_state) ... ok
+test_initial_four (test_backend.BackendTests.test_initial_four) ... ok
+test_invalid_collatz (test_backend.BackendTests.test_invalid_collatz) ... ok
+test_missing_delete (test_backend.BackendTests.test_missing_delete) ... ok
+test_search_miss (test_backend.BackendTests.test_search_miss) ... ok
+test_authenticated_command (test_http.HTTPTests.test_authenticated_command) ... ok
+test_bad_host (test_http.HTTPTests.test_bad_host) ... ok
+test_foreign_origin (test_http.HTTPTests.test_foreign_origin) ... ok
+test_invalid_input (test_http.HTTPTests.test_invalid_input) ... ok
+test_missing_token (test_http.HTTPTests.test_missing_token) ... ok
+test_state (test_http.HTTPTests.test_state) ... ok
+test_unknown_route (test_http.HTTPTests.test_unknown_route) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.069s
+
+OK
+mkdir -p build
+cc -std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined tests/test_math.c -o build/test_math
+./build/test_math
+PASS: shared kernel arithmetic, exact 15 sequence, zero and overflow guards
+make: Leaving directory '/workspace/scratch/560ee596ed72/CSM302-II-4-4'
