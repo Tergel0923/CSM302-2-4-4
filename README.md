@@ -81,9 +81,6 @@ sudo insmod src/kernel/collatz.ko start=27
 ## Эх сурвалж
 
 - Silberschatz, Galvin, Gagne. *Operating System Concepts*, 10th ed., 2018. Chapter 3, Programming Project 4, printed P-19–P-22.
-- https://docs.kernel.org/core-api/list.html
-- https://docs.kernel.org/filesystems/seq_file.html
-- https://docs.kernel.org/kbuild/modules.html
 - F.CSM302: BD1 Guide, Topic and Peer Review Allocation, Peer Review Guide (өгсөн PDF).
 
 Шүүмжлэх баг: **IV-2-7 — Fork-Join Sorting Application**.
@@ -98,4 +95,4 @@ make doctor-live  # Linux, GCC, Make, matching kernel headers
 make run          # make demo-той ижил
 ```
 
-Вэбийн товчнууд RGB эсвэл Коллатцын эхлэх утгыг бэлдэнэ. Дараа нь үйлдлийн товчийг дарна. Граф дээр өнгийн элементийг сонгоход RGB болон устгах дугаар бөглөгдөнө. Алдаатай үйлдлүүд ч үйлдлийн түүхт тэмдэглэгдэнэ.
+Вэбийн товчнууд RGB эсвэл Коллатцын эхлэх утгыг бэлдэнэ. Дараа нь үйлдлийн товчийг дарна. Граф дээр өнгийн элементийг сонгоход RGB болон устгах дугаар бөглөгдөнө.
