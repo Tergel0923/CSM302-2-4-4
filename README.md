@@ -63,7 +63,7 @@ sudo insmod src/kernel/collatz.ko start=27
 | src/kernel/ | colors.c, collatz.c, shared arithmetic, Kbuild |
 | src/ui/ | stdlib Python server, backend, HTML/SVG interactive UI |
 | tests/ | model, HTTP, arithmetic, real kernel acceptance tests |
-| docs/ | Mongolian report/manual, review template, evidence and submission checklist |
+| docs/ | report/manual, review template, screenshots|
 | tools/build_docs.py | PDF-ийг эх Markdown-оос дахин гаргах |
 
 ## Баг ба AI ашиглалт
