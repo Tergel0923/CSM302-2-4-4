@@ -1,0 +1,9 @@
+Linux-6.18.57-x86_64-with-glibc2.39
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Python 3.12.14
+
+ASAN_OPTIONS=detect_leaks=0 for container test run. Kernel runtime not tested.
