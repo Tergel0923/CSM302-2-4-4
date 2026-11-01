@@ -1,4 +1,4 @@
-# Цөмийн өгөгдлийн бүтэц — II-4-4
+# Kernel data structure — II-4-4
 
 **F.CSM302 · Бие даалт 1 · Operating System Concepts (2018), Chapter 3, Project 4**
 
@@ -12,7 +12,7 @@
 - Хязгаар: RGB 0–255; colors 128 nodes; Collatz 4096 nodes, unsigned 64-bit overflow guard.
 - Live mode хэзээ ч автоматаар simulation руу шилжихгүй. Practice mode нь kernel proof биш.
 
-## Түргэн эхлэх: дадлага (Windows, Linux, macOS)
+## Quick start: ажиллуулах (Windows, Linux, macOS)
 
 Python 3.10+ суулгана. Сан нэмж суулгахгүй.
 
