@@ -29,8 +29,8 @@ def p(text,style='body'):
 def footer(canvas,doc):
     w,h=A4;canvas.setStrokeColor(TEAL);canvas.setLineWidth(2);canvas.line(44,h-35,w-44,h-35)
     canvas.setFont('DejaVu',8);canvas.setFillColor(TEAL)
-    canvas.drawString(44,h-25,'F.CSM302  /  II-4-4  /  KERNEL DATA STRUCTURES')
-    canvas.setFillColor(BLUE);canvas.drawString(44,27,'2026-11-01  ·  Implementation & verification record')
+    canvas.drawString(44,h-25,'F.CSM302  /  II-4-4  /  ЦӨМИЙН ӨГӨГДЛИЙН БҮТЭЦ')
+    canvas.setFillColor(BLUE);canvas.drawString(44,27,'2026-11-01  ·  Хэрэгжилт ба баталгаажуулалтын тэмдэглэл')
     canvas.drawRightString(w-44,27,str(doc.page))
 def render(source,target):
     lines=source.read_text().splitlines();flow=[];i=0
@@ -54,7 +54,7 @@ def render(source,target):
         if line.startswith('# '):flow.append(p(line[2:],'h1'))
         elif line.startswith('## '):flow.append(p(line[3:],'h2'))
         else:flow.append(p(line))
-    doc=SimpleDocTemplate(str(target),pagesize=A4,rightMargin=44,leftMargin=44,topMargin=55,bottomMargin=49,title=source.stem+' — II-4-4',author='II-4-4 / AI-assisted project')
+    doc=SimpleDocTemplate(str(target),pagesize=A4,rightMargin=44,leftMargin=44,topMargin=55,bottomMargin=49,title=source.stem+' — II-4-4',author='II-4-4 / AI тусламжтай боловсруулсан төсөл')
     doc.build(flow,onFirstPage=footer,onLaterPages=footer)
     print(target)
 

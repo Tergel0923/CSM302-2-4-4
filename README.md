@@ -1,4 +1,4 @@
-# Kernel Data Structures — II-4-4
+# Цөмийн өгөгдлийн бүтэц — II-4-4
 
 **F.CSM302 · Бие даалт 1 · Operating System Concepts (2018), Chapter 3, Project 4**
 
@@ -12,7 +12,7 @@
 - Хязгаар: RGB 0–255; colors 128 nodes; Collatz 4096 nodes, unsigned 64-bit overflow guard.
 - Live mode хэзээ ч автоматаар simulation руу шилжихгүй. Practice mode нь kernel proof биш.
 
-## Quick Start: practice (Windows, Linux, macOS)
+## Түргэн эхлэх: дадлага (Windows, Linux, macOS)
 
 Python 3.10+ суулгана. Сан нэмж суулгахгүй.
 
@@ -25,7 +25,7 @@ python3 src/ui/server.py --mode demo
 Windows: `py src/ui/server.py --mode demo`.
 Нээх: **http://127.0.0.1:8765**. Зогсоох: Ctrl+C.
 
-## Quick Start: бодит kernel (Ubuntu VM)
+## Түргэн эхлэх: бодит цөм (Ubuntu VM)
 
 Ubuntu 22.04/24.04 VM, kernel 5.6+, Python 3.10+, GCC/Make, running kernel-тэй ижил headers шаардлагатай.
 Доорх командуудыг repository root-оос ажиллуулна:
@@ -56,7 +56,7 @@ Collatz параметр солих:
 sudo rmmod collatz
 sudo insmod src/kernel/collatz.ko start=27
 ```
-Дараа нь UI-ийн Refresh товчийг дарна. Windows/ердийн WSL2 дээр `.ko` ачаалах нь native Ubuntu VM-тэй адил биш; kernel headers/module support шаардлагатай.
+Дараа нь UI-ийн Шинэчлэх товчийг дарна. Windows/ердийн WSL2 дээр `.ko` ачаалах нь native Ubuntu VM-тэй адил биш; kernel headers/module support шаардлагатай.
 
 ## Туршилт ба баталгаажуулалтын төлөв
 
@@ -66,7 +66,7 @@ make test
 sudo python3 tests/kernel_acceptance.py | tee docs/evidence/kernel-acceptance.txt
 ```
 
-2026-11-01: **22 Python test PASS**, shared C arithmetic test PASS (ASan/UBSan; container-д leak detector disabled), JavaScript syntax PASS.
+2026-11-01: **22 Python test АМЖИЛТТАЙ**, shared C arithmetic test АМЖИЛТТАЙ (ASan/UBSan; container-д leak detector disabled), JavaScript syntax АМЖИЛТТАЙ.
 `docs/evidence/local-tests.txt` нь бодит гаралт. **colors.ko болон collatz.ko нь Ubuntu 6.8.0-138-generic headers дээр W=1 build амжилттай** (docs/evidence/kernel-build.txt). Host kernel нь 6.18.57 тул module load хийгээгүй. **Kernel runtime болон browser visual acceptance хараахан баталгаажаагүй**. Энэ нь бүх төсөл acceptance давсан гэсэн үг биш.
 
 Container-ийн LeakSanitizer ptrace алдаа гарвал зөвхөн тухайн орчинд `ASAN_OPTIONS=detect_leaks=0 make test` ашиглаж болно; VM дээр эхлээд `make test` хэвээр ажиллуул.

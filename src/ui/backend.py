@@ -8,13 +8,13 @@ DEFAULTS = [(138, 226, 43), (255, 0, 0), (0, 255, 0), (0, 0, 255)]
 
 def integer(value, low, high):
     if isinstance(value, bool) or not isinstance(value, (str, int)):
-        raise ValueError('Enter an integer.')
+        raise ValueError('Бүхэл тоо оруулна уу.')
     text = str(value)
     if not text.isascii() or not text.isdecimal() or len(text) > 20:
-        raise ValueError('Use decimal digits only.')
+        raise ValueError('Зөвхөн аравтын тооллын цифр оруулна уу.')
     n = int(text)
     if not low <= n <= high:
-        raise ValueError(f'Value must be between {low} and {high}.')
+        raise ValueError(f'Утга {low}–{high} завсарт байх ёстой.')
     return n
 
 
@@ -26,7 +26,7 @@ def command(data):
         return 'DELETE ' + str(integer(data.get('id'), 1, (1 << 32) - 1))
     if action in ('RESET', 'CLEAR'):
         return action
-    raise ValueError('Unknown action.')
+    raise ValueError('Танигдаагүй үйлдэл.')
 
 
 def linked(nodes, kind, **metadata):
@@ -42,17 +42,17 @@ def collatz(start):
     nodes = []
     while True:
         if len(nodes) >= 4096:
-            raise ValueError('Sequence exceeds 4096 nodes.')
+            raise ValueError('Дараалал 4096 элементийн хязгаараас давлаа.')
         nodes.append({'id': len(nodes) + 1, 'value': str(n)})
         if n == 1:
             return linked(nodes, 'collatz', start=str(start))
         if n % 2 and n > (MAX_U64 - 1) // 3:
-            raise ValueError('Unsigned 64-bit overflow; choose a smaller start.')
+            raise ValueError('Тэмдэггүй 64 битийн тооны хязгаар давлаа. Бага эхлэх утга сонгоно уу.')
         n = n // 2 if n % 2 == 0 else 3 * n + 1
 
 
 class DemoBackend:
-    mode = 'PRACTICE SIMULATION — not kernel evidence'
+    mode = 'ДАДЛАГЫН ЗАГВАРЧЛАЛ — цөмийн бодит туршилтын нотолгоо биш'
 
     def __init__(self):
         self.nodes = []
@@ -73,7 +73,7 @@ class DemoBackend:
         action = parts[0]
         if action == 'ADD':
             if len(self.nodes) >= 128 or self.next_id > (1 << 32) - 1:
-                raise ValueError('List capacity reached (128 nodes).')
+                raise ValueError('Жагсаалт 128 элементийн хязгаарт хүрсэн.')
             self.nodes.append(dict(zip(('r', 'g', 'b'), map(int, parts[1:])), id=self.next_id))
             self.next_id += 1
             self.found = 0
@@ -83,7 +83,7 @@ class DemoBackend:
         elif action == 'DELETE':
             idx = next((i for i, n in enumerate(self.nodes) if n['id'] == int(parts[1])), None)
             if idx is None:
-                raise ValueError('Node ID not found.')
+                raise ValueError('Ийм дугаартай элемент олдсонгүй.')
             self.nodes.pop(idx)
             self.found = 0
         elif action == 'CLEAR':
@@ -95,7 +95,7 @@ class DemoBackend:
 
 
 class KernelBackend:
-    mode = 'LIVE LINUX KERNEL — /proc snapshots'
+    mode = 'БОДИТ LINUX ЦӨМ — /proc төлөв'
 
     def state(self):
         colors = json.loads(Path('/proc/kds_colors').read_text())
@@ -103,11 +103,11 @@ class KernelBackend:
             sequence = json.loads(Path('/proc/kds_collatz').read_text())
             error = None
         except FileNotFoundError:
-            sequence, error = None, 'Load collatz.ko with start=N in the terminal, then Refresh.'
+            sequence, error = None, 'Терминалаас collatz.ko модулийг start=N параметрээр ачаалаад шинэчилнэ үү.'
         return {'mode': self.mode, 'colors': colors, 'collatz': sequence, 'collatz_error': error}
 
     def execute(self, data):
         if data.get('action') == 'COLLATZ':
-            raise ValueError('Live mode: sudo rmmod collatz; sudo insmod src/kernel/collatz.ko start=N; then Refresh.')
+            raise ValueError('Бодит горим: sudo rmmod collatz; sudo insmod src/kernel/collatz.ko start=N; дараа нь төлөвийг шинэчилнэ үү.')
         with open('/proc/kds_colors', 'w') as out:
             out.write(command(data) + '\n')

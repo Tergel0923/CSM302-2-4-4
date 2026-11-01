@@ -1,4 +1,4 @@
-# II-4-4 — Submission checklist
+# II-4-4 — Хүлээлгэн өгөх шалгах хуудас
 
 ## GitHub хувилбар
 
@@ -33,6 +33,6 @@ II-4-4 – Kernel Data Structures
 Товч үр дүн: Linux kernel-ийн circular doubly linked list дээр дөрвөн өнгийн элемент болон параметртэй Collatz sequence хэрэгжүүлэв. Interactive UI нь /proc-оос next/prev холбоог уншиж, нэмэх, устгах, RGB хайх, reset хийх боломжтой. Туршилтын баталгаажуулалтын төлөв болон хязгаарлалтыг тайланд тэмдэглэв.
 GitHub: https://github.com/Tergel0923/CSM302-II-4-4
 Хавсралт: II-4-4_BD1_Report.pdf, II-4-4_Manual.pdf
-Туршиж үзэх: README-ийн Quick Start.
+Туршиж үзэх: README-ийн Түргэн эхлэх.
 
 Энэ post-ийг автоматаар илгээгээгүй. Нийтлэх хувилбар болон screenshot-ийг баг өөрөө баталгаажуулна.

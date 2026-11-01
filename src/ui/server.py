@@ -31,11 +31,11 @@ def serve(mode, port):
 
         def do_GET(self):
             if not self.valid_host():
-                return self.reply(403, '{"error":"Invalid Host"}')
+                return self.reply(403, '{"error":"Хандалтын хаяг буруу"}')
             if self.path == '/':
                 return self.reply(200, page, 'text/html')
             if self.path != '/api/state':
-                return self.reply(404, '{"error":"Not found"}')
+                return self.reply(404, '{"error":"Олдсонгүй"}')
             try:
                 self.reply(200, json.dumps(backend.state()))
             except (OSError, ValueError) as exc:
@@ -43,22 +43,22 @@ def serve(mode, port):
 
         def do_POST(self):
             if not self.valid_host() or self.headers.get('Origin') != origin or self.headers.get('X-KDS-Token') != token:
-                return self.reply(403, '{"error":"Request rejected"}')
+                return self.reply(403, '{"error":"Хүсэлт зөвшөөрөгдсөнгүй"}')
             if self.path != '/api/command':
-                return self.reply(404, '{"error":"Not found"}')
+                return self.reply(404, '{"error":"Олдсонгүй"}')
             try:
                 size = int(self.headers.get('Content-Length', '0'))
                 if not 0 < size <= 1024:
-                    raise ValueError('Invalid request size.')
+                    raise ValueError('Хүсэлтийн хэмжээ буруу.')
                 data = json.loads(self.rfile.read(size))
                 if not isinstance(data, dict):
-                    raise ValueError('Expected JSON object.')
+                    raise ValueError('JSON объект шаардлагатай.')
                 backend.execute(data)
                 self.reply(200, json.dumps(backend.state()))
             except (OSError, ValueError, TypeError) as exc:
                 self.reply(400, json.dumps({'error': str(exc)}))
 
-    print(f'{backend.mode}\nOpen {origin} (Ctrl+C to stop)', flush=True)
+    print(f'{backend.mode}\n{origin} хаягийг нээнэ үү (зогсоох: Ctrl+C)', flush=True)
     server = HTTPServer(('127.0.0.1', port), Handler)
     server.timeout = 5
     try:
@@ -70,10 +70,10 @@ def serve(mode, port):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--mode', choices=('kernel', 'demo'), default='kernel')
-    parser.add_argument('--port', type=int, default=8765)
+    parser = argparse.ArgumentParser(description='Цөмийн өгөгдлийн бүтцийн вэб интерфейс')
+    parser.add_argument('--mode', choices=('kernel', 'demo'), default='kernel', help='Горим: kernel = бодит цөм; demo = дадлага')
+    parser.add_argument('--port', type=int, default=8765, help='Локал серверийн порт (анхны утга: 8765)')
     args = parser.parse_args()
     if not 1024 <= args.port <= 65535:
-        parser.error('Use a port between 1024 and 65535.')
+        parser.error('1024–65535 завсрын порт сонгоно уу.')
     serve(args.mode, args.port)

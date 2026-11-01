@@ -28,7 +28,7 @@ class HTTPTests(unittest.TestCase):
         r=c.getresponse();body=r.read();status=r.status;c.close();return status,body
     def auth(self):return {'Origin':f'http://127.0.0.1:{self.port}','X-KDS-Token':self.token,'Content-Type':'application/json'}
     def test_state(self):
-        status,body=self.call('GET','/api/state');self.assertEqual(status,200);self.assertIn('PRACTICE',json.loads(body)['mode'])
+        status,body=self.call('GET','/api/state');self.assertEqual(status,200);self.assertIn('ДАДЛАГЫН',json.loads(body)['mode'])
     def test_authenticated_command(self):
         status,body=self.call('POST','/api/command',{'action':'RESET'},self.auth());self.assertEqual(status,200);self.assertEqual(len(json.loads(body)['colors']['nodes']),4)
     def test_missing_token(self):self.assertEqual(self.call('POST','/api/command',{'action':'CLEAR'})[0],403)
