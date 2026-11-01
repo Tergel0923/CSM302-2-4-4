@@ -1,6 +1,6 @@
 # Kernel data structure — II-4-4
 
-**F.CSM302 · Бие даалт 1 · Operating System Concepts (2018), Chapter 3, Project 4**
+**F.CSM302 · Бие даалт 1**
 
 Бодит Linux kernel-ийн circular doubly linked list болон түүнийг `/proc`-оор уншдаг interactive graph.
 
@@ -10,7 +10,6 @@
 - **Part II / collatz.ko:** `start=25` default; параметрээс Collatz sequence үүсгэж linked list-д хадгалах, traversal/log, unload cleanup.
 - **UI:** add, delete by ID, search RGB, clear/reset, next/prev graph, HEAD sentinel, snapshot inspector, JSON export, operation history.
 - Хязгаар: RGB 0–255; colors 128 nodes; Collatz 4096 nodes, unsigned 64-bit overflow guard.
-- Live mode хэзээ ч автоматаар simulation руу шилжихгүй. Practice mode нь kernel proof биш.
 
 ## Quick start: ажиллуулах (Windows, Linux, macOS)
 
@@ -39,9 +38,8 @@ sudo insmod src/kernel/collatz.ko start=15
 sudo python3 src/ui/server.py --mode kernel
 ```
 
+VM ашиглана.
 Browser-ийг энгийн хэрэглэгчээр VM дотор нээнэ: http://127.0.0.1:8765.
-Proc файлууд root-only, write нь CAP_SYS_ADMIN шалгана. Сургалтын тусгаарласан VM ашиглана.
-HTTP server нь зөвхөн loopback хаяг дээр ажиллана. Public network-д бүү байршуул.
 
 ```bash
 # UI terminal-д Ctrl+C дарсны дараа:
@@ -58,19 +56,6 @@ sudo insmod src/kernel/collatz.ko start=27
 ```
 Дараа нь UI-ийн Шинэчлэх товчийг дарна. Windows/ердийн WSL2 дээр `.ko` ачаалах нь native Ubuntu VM-тэй адил биш; kernel headers/module support шаардлагатай.
 
-## Туршилт ба баталгаажуулалтын төлөв
-
-```bash
-make test
-# Disposable VM дээр make kernel-ийн дараа, модуль ачаалаагүй үед:
-sudo python3 tests/kernel_acceptance.py | tee docs/evidence/kernel-acceptance.txt
-```
-
-2026-11-01: **22 Python test АМЖИЛТТАЙ**, shared C arithmetic test АМЖИЛТТАЙ (ASan/UBSan; container-д leak detector disabled), JavaScript syntax АМЖИЛТТАЙ.
-`docs/evidence/local-tests.txt` нь бодит гаралт. **colors.ko болон collatz.ko нь Ubuntu 6.8.0-138-generic headers дээр W=1 build амжилттай** (docs/evidence/kernel-build.txt). Host kernel нь 6.18.57 тул module load хийгээгүй. **Kernel runtime болон browser visual acceptance хараахан баталгаажаагүй**. Энэ нь бүх төсөл acceptance давсан гэсэн үг биш.
-
-Container-ийн LeakSanitizer ptrace алдаа гарвал зөвхөн тухайн орчинд `ASAN_OPTIONS=detect_leaks=0 make test` ашиглаж болно; VM дээр эхлээд `make test` хэвээр ажиллуул.
-
 ## Бүтэц
 
 | Зам | Агуулга |
@@ -83,7 +68,7 @@ Container-ийн LeakSanitizer ptrace алдаа гарвал зөвхөн ту�
 
 ## Баг ба AI ашиглалт
 
-Баг II-4-4. Өмнөх README-д байсан гишүүд: 
+Баг II-4-4:
   Э.Тэргэл B210930801
   Б.Булгантамир B241940123
   Т.Төгөлдөр: B242270050
@@ -91,8 +76,7 @@ Container-ийн LeakSanitizer ptrace алдаа гарвал зөвхөн ту�
   О.Амина:B241910800
   М.Наранбат:B242270801
   
-Гишүүн тус бүрийн ажил/commit-ийг баталгаажуулж оруулаагүй; хийсэн бодит ажлаар нөхнө.
-Код, UI, тест, баримт бичгийг ChatGPT/Codex-ийн тусламжтай боловсруулсан. Баг кодыг судалж, VM дээр туршиж, үр дүнг нягталж хамгаална. Гишүүдийн commit history, screenshot, kernel test үр дүнг зохиомлоор үүсгээгүй.
+Код, UI, тест, баримт бичгийг ChatGPT/Codex-ийн тусламжтай боловсруулсан.
 
 ## Эх сурвалж
 
